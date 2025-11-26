@@ -1,9 +1,9 @@
-// --- Hot Ad Blocker - Content Script v1.1 ---
+// --- Add Free Extension - Content Script v1.1 ---
 // Waits for the player to load, then blocks ads and restores main video playback.
 
-(function() {
+(function () {
     'use strict';
-    console.log("Hot Ad Blocker: Content script injected. Waiting for player...");
+    console.log("Add Free Extension: Content script injected. Waiting for player...");
 
     let adBlockerInterval = null;
     let isEnabled = true;
@@ -49,13 +49,13 @@
 
     function startBlocker() {
         if (adBlockerInterval) return;
-        console.log("Hot Ad Blocker: Activated.");
+        console.log("Add Free Extension: Activated.");
         adBlockerInterval = setInterval(smartAdBlocker, 150);
     }
 
     function stopBlocker() {
         if (!adBlockerInterval) return;
-        console.log("Hot Ad Blocker: Deactivated.");
+        console.log("Add Free Extension: Deactivated.");
         clearInterval(adBlockerInterval);
         adBlockerInterval = null;
     }
@@ -65,9 +65,9 @@
         const waitForPlayer = setInterval(() => {
             if (document.getElementById('video-container')) {
                 clearInterval(waitForPlayer);
-                console.log("Hot Ad Blocker: Player detected. Initializing blocker...");
+                console.log("Add Free Extension: Player detected. Initializing blocker...");
                 // Now that the player exists, check storage and start/stop the blocker
-                chrome.storage.sync.get('enabled', function(data) {
+                chrome.storage.sync.get('enabled', function (data) {
                     isEnabled = data.enabled !== false;
                     if (isEnabled) {
                         startBlocker();
@@ -78,7 +78,7 @@
     }
 
     // Listen for changes from the popup toggle
-    chrome.storage.onChanged.addListener(function(changes) {
+    chrome.storage.onChanged.addListener(function (changes) {
         if (changes.enabled) {
             isEnabled = !!changes.enabled.newValue;
             if (isEnabled) {
