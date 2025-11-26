@@ -10,8 +10,9 @@ Add Free Extension is built to intelligently detect and handle ad breaks during 
 
 *   **Smart Ad Detection**: Continuously monitors the DOM for ad-specific containers and attributes (like `ad-video-container` or specific test IDs).
 *   **Instant Resume**: Automatically pauses and mutes ad streams, removes them, and forces the main video to resume immediately.
-*   **UI Cleanup**: Removes visual clutter associated with ads, such as yellow seekbar markers, ad countdowns, and "ad-free" nudges.
-*   **Toggle Control**: Includes a simple popup interface to quickly enable or disable the blocking functionality without uninstalling.
+*   **Modern UI**: Features a sleek **Dark Mode** interface with a deep blue/purple gradient background and smooth animations.
+*   **Adaptive Icons**: Uses distinct icons for different contexts - a simplified high-contrast icon for the toolbar (16px) and a detailed premium icon for the store/management page (48px/128px).
+*   **Interactive Controls**: Includes an animated toggle switch with a "pulse" effect to indicate active protection, and dynamic status text.
 
 ## Installation
 
@@ -33,6 +34,15 @@ The core logic (`content.js`) operates on a polling mechanism that:
 1.  Waits for the main video player to initialize.
 2.  Checks for the presence of ad layers.
 3.  If an ad is detected, it removes the ad DOM elements and programmatically plays the main video element.
+
+## Development
+
+### Icon Generation
+If you need to regenerate the icons, use the provided shell script (macOS only, requires `sips`):
+```bash
+./generate_icons.sh
+```
+This will resize the base icon to the required 16px, 48px, and 128px sizes.
 
 ## Usage
 

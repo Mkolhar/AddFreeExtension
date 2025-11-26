@@ -1,17 +1,28 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Add Free Extension</title>
   <link rel="stylesheet" href="popup.css">
 </head>
+
 <body>
   <div class="container">
+    <div class="logo-container">
+      <img src="icons/icon48.png" alt="Logo" class="logo">
+    </div>
     <h3>Add Free Extension</h3>
+    <div id="statusText" class="status-text">Protection Paused</div>
+
     <label class="switch">
       <input type="checkbox" id="toggleSwitch">
       <span class="slider"></span>
+      <div class="pulse-ring"></div>
     </label>
+
+    <div class="footer">v1.1 • Ad-Free Experience</div>
   </div>
   <script src="popup.js"></script>
 </body>
+
 </html>
